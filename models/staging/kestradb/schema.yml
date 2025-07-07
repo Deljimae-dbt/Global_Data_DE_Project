@@ -24,5 +24,30 @@ models:
     columns:
       - name: country_code
         description: ISO code or regional code
+        tests:
+          - not_null
+          - unique
       - name: country_name
         description: Full name of the country
+        tests:
+          - not_null
+
+  - name: fct_global_indicators
+    description: Fact table for cleaned and filtered global indicators data
+    columns:
+      - name: country_code
+        description: Country or region code
+        tests:
+          - not_null
+      - name: indicator_name
+        description: Human-readable name of the indicator
+        tests:
+          - not_null
+      - name: year
+        description: Year of observation
+        tests:
+          - not_null
+      - name: value
+        description: Measured value of the indicator
+        tests:
+          - not_null
